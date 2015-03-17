@@ -1,0 +1,58 @@
+$background-color: #000;
+$font-type: GoodDog;
+$color: #FFFF00;
+
+@mixin centre($axis: "both"){ 
+  position:absolute; 
+  @if $axis == "y"{
+     top:50%; 
+     -webkit-transform: translateY(-50%); 
+     -moz-transform: translateY(-50%); 
+     -ms-transform: translateY(-50%); 
+     -o-transform: translateY(-50%); 
+     transform: translateY(-50%); 
+  } 
+  @if $axis == "x"{ 
+    left:50%;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%); 
+    -ms-transform: translateX(-50%); 
+    -o-transform: translateX(-50%); 
+    transform: translateX(-50%); 
+   } 
+   @if $axis == "both"{ 
+     top:50%; 
+     left:50%; 
+     -webkit-transform: translate(-50%, -50%); 
+     -moz-transform: translate(-50%, -50%); 
+     -ms-transform: translate(-50%, -50%); 
+     -o-transform: translate(-50%, -50%); 
+     transform: translate(-50%, -50%); 
+  }
+}
+ 
+body {
+  background: $background-color;
+  color: $color;
+  font: 25% $font-type;
+}
+ canvas {
+   @include centre(x);
+ }
+ 
+.pacman {
+  position: absolute;
+  top: 34px;
+}
+.table{
+  position: absolute;
+  top: 0px;
+}
+@font-face {
+      font-family: 'GoodDog';
+        src: url('GoodDog.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+}
+h1 { font-family: "GoodDog" }
+h2 { font-family: "GoodDog" }
